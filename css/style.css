@@ -1,0 +1,45 @@
+body {
+  background-color: aliceblue;
+}
+
+h1 {
+  fornt-family: "Dancing Script";
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
+p {
+  margin: 0 42px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+div {
+  background-color: bisque;
+  height: 250px;
+  border: 1px solid black;
+}
+
+.teras{
+    height: 150 px;
+    background -color: lightblue;
+
+}
+.Taman{
+    height: 100px;
+    width: 100px;
+    backgorund-color:green;
+}
+.Teras{
+    height: 100px;
+    width: 100px;
+    backgorund-color:rgb(0, 43, 128);
+  
+}
+.Garasi{
+    height: 100px;
+    width: 100px;
+    backgorund-color:rgb(150, 65, 160);
+}

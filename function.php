@@ -1,5 +1,5 @@
 <?php
-$koneksi = mysqli_connect("localhost:3307", "root", "", "informatik");
+$koneksi = mysqli_connect("localhost:3306", "root", "root", "informatik");
 if (!$koneksi) {
     die('Koneksi Gagal' . mysqli_connect_error());
 }

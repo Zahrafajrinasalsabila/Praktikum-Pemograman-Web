@@ -45,6 +45,7 @@ $rows = tampildata($query);
     <table border="1" cellspacing="0" cellpadding="10px">
         <tr>
             <th>No</th>
+            <th>foto</th>
             <th>Nama</th>
             <th>NIM</th>
             <th>Jurusan</th>
@@ -55,7 +56,15 @@ $rows = tampildata($query);
         foreach($rows as $mhs) { ?>
             <tr>
                 <td><?= $i; ?></td>
-                <td><img src="images/mhs/<?$mhs["foto"]?> alt="<?= $mhs[foto] ?> " width"17px" height="17px" style="border-radius: 50%; margin: 0% 10
+                <td>
+                <img 
+                    src="images/mhs/<?= $mhs['foto']; ?>" 
+                    alt="<?= $mhs['foto']; ?>" 
+                    width="80px" 
+                    height="80px" 
+                    style="border-radius: 50%; margin: 0 10px;">
+                </td>
+
                 <td><?= $mhs["nama"]; ?> </td>
                 <td><?= $mhs["nim"]; ?> </td>
                 <td><?= $mhs["jurusan"]; ?> </td>

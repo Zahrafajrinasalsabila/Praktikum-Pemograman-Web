@@ -42,6 +42,10 @@ $rows = tampildata($query);
         </ul>
     </nav>
     <h1 align="center">Data Mahasiswa</h1>
+    <a href="tambahdata.php">
+        <button style="background-color: green; cursor:pointer; margin: bottom 20px;">
+            Tambah Data 
+        </button>
     <table border="1" cellspacing="0" cellpadding="10px">
         <tr>
             <th>No</th>
@@ -60,8 +64,8 @@ $rows = tampildata($query);
                 <img 
                     src="images/mhs/<?= $mhs['foto']; ?>" 
                     alt="<?= $mhs['foto']; ?>" 
-                    width="80px" 
-                    height="80px" 
+                    width="95px" 
+                    height="95px" 
                     style="border-radius: 50%; margin: 0 10px;">
                 </td>
 

@@ -1,6 +1,5 @@
-
 <?php
-$koneksi = mysqli_connect("localhost:3307", "root", "root", "informatik");
+$koneksi = mysqli_connect("localhost", "root", "root", "informatik");
 if (!$koneksi) {
     die('Koneksi Gagal' . mysqli_connect_error());
 }
@@ -21,8 +20,29 @@ if(isset($_POST["submit"]))
 
     if(move_uploaded_file($tmp, $path))
     {
-        $query = "INSERT INTO mahasiswa VALUES ('', '$namafile', '$nama', '$nim', '$jurusan', '$alamat')";
+        $query = "INSERT INTO mahasiswa (foto, nama, nim, jurusan, alamat) VALUES ('$namafile', '$nama', '$nim', '$jurusan', '$alamat')";
+
+        echo $query;
        mysqli_query($koneksi, $query);
+       
+    if(mysqli_affected_rows($koneksi)> 0)
+        {
+            echo "
+            <script>
+                alert('Data Berhasil Ditambahkan!');
+                document.location.href= 'datamahasiswa.php';
+            </script>
+            ";
+        }
+        else
+        {
+            echo "
+            <script>
+                alert('Data Gagal Ditambahkan!');
+                document.location.href= 'datamahasiswa.php';
+            </script>
+            ";
+        }
     }
 
 }

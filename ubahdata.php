@@ -1,19 +1,26 @@
 <?php
 require 'function.php';
 
+$id = $_GET['id'];
+
+$query = "SELECT * FROM mahasiswa WHERE id = '$id'";
+
+$mhs = tampildata($query)[0];
+
+
 if (isset($_POST["submit"])) {
-    if (tambahdata($_POST) > 0) {
+    if (ubahdata($_POST, $id) > 0) {
         echo "
         <script>
-            alert('Data Berhasil Ditambahkan!');
-            document.location.href= 'datamahasiswa.php';
+            alert('Data Berhasil Diubah!');
+            document.location.href= '../datamahasiswa.php';
         </script>
         ";
     } else {
         echo "
         <script>
-            alert('Data Gagal Ditambahkan!');
-            document.location.href= 'datamahasiswa.php';
+            alert('Data Gagal Diubah!');
+            document.location.href= '../datamahasiswa.php';
         </script>
         ";
     }
@@ -26,7 +33,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Mahasiswa</title>
+    <title>Ubah Data Mahasiswa</title>
     <style>
         * {
             box-sizing: border-box;
@@ -98,25 +105,28 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="form-container">
-        <h1>Tambah Data Mahasiswa</h1>
+        <h1>Ubah Data Mahasiswa</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" required>
+    <input type="hidden" name="id" value="<?= $mhs["id"] ?>">
 
-            <label for="nim">NIM</label>
-            <input type="text" name="nim" id="nim" required>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" required value="<?= $mhs["nama"] ?>">
 
-            <label for="jurusan">Jurusan</label>
-            <input type="text" name="jurusan" id="jurusan" required>
+    <label for="nim">NIM</label>
+    <input type="text" name="nim" id="nim" required value="<?= $mhs["nim"] ?>">
 
-            <label for="alamat">Alamat</label>
-            <input type="text" name="alamat" id="alamat" required>
+    <label for="jurusan">Jurusan</label>
+    <input type="text" name="jurusan" id="jurusan" required value="<?= $mhs["jurusan"] ?>">
 
-            <label for="foto">Upload Foto</label>
-            <input type="file" name="foto" id="foto" required>
+    <label for="alamat">Alamat</label>
+    <input type="text" name="alamat" id="alamat" required value="<?= $mhs["alamat"] ?>">
 
-            <button type="submit" name="submit">Tambah</button>
-        </form>
+    <label for="foto">Upload Foto</label>
+    <input type="file" name="foto" id="foto">
+
+    <button type="submit" name="submit">Edit</button>
+</form>
+
     </div>
 </body>
 

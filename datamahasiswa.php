@@ -73,6 +73,11 @@ $rows = tampildata($query);
                 <td><?= $mhs["nim"]; ?> </td>
                 <td><?= $mhs["jurusan"]; ?> </td>
                 <td><?= $mhs["alamat"]; ?> </td>
+            <td>
+                    <a href="hapusdata.php/?id=<?= $mhs["id"] ?>" onclick ="return confirm('yakinhapusdata?')">Hapus</a>
+                    |
+                    <a href="ubahdata.php/?id=<?= $mhs["id"] ?>">Edit</a>
+                </td>
             </tr>
         <?php $i++;} ?>
     </table>

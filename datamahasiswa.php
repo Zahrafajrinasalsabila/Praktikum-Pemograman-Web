@@ -1,7 +1,12 @@
 <?php
-// $nama = "Pitaloka";
-// echo "Hello World $nama" . " Cantik";
-// echo$nama;
+session_start():
+
+if ($_SESSION["login"])
+{
+    header("Location : login.php")
+    exit;
+}
+
 require "function.php";
 $query = "SELECT * From mahasiswa" ;
 $rows = tampildata($query);
@@ -34,7 +39,7 @@ $rows = tampildata($query);
                 <a href="contact.html">Contact</a>
             </li>
             <li style="display: inline; margin: 0% 15px; text-decoration: none;">
-                <a href="login.html">Login</a>
+                <a href="logout.php">Logout</a>
             </li>
             <li style="display: inline; margin: 0% 15px; text-decoration: none;">
                 <a href="datamahasiswa.php">Data</a>

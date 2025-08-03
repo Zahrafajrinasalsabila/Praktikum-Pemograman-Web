@@ -91,9 +91,9 @@ function register($data)
 {
     global $koneksi;
 
-    $username = trim($data["username"]);
-    $password1 = $data["password1"];
-    $password2 = $data["password2"];
+    $username = stripslashes($data["username"]);
+    $password1 =trim($data["password1"]);
+    $password2 =trim($data["password2"]);
 
     // Cek apakah username sudah ada
     $query_username = "SELECT id FROM user WHERE username = '$username'";

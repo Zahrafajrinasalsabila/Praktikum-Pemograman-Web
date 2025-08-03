@@ -1,9 +1,19 @@
+
 <?php
-require 'function.php'; // ✅ Tambahkan .php di sini
+
+    session_start();
+
+    if(!isset($_SESSION['user_id'])){
+      header("Location: login.php");
+      exit;
+    }
+
+
+require 'function.php'; // 
 
 $id = $_GET["id"];
 
-if (hapusdata($id) > 0) // ✅ pakai huruf kecil semua, sesuai definisi fungsi
+if (hapusdata($id) > 0) 
 {
     echo "
         <script>
